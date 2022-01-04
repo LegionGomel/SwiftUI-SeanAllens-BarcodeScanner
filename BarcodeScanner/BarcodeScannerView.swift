@@ -6,34 +6,17 @@
 //
 
 import SwiftUI
-import simd
-
-struct AlertItem: Identifiable {
-    let id = UUID()
-    let title: String
-    let message: String
-    let dismissButton: Alert.Button
-}
-
-struct AlertContext {
-    static let invalidDeviceInput = AlertItem(title: "Invalid Device Input",
-                                              message: "Something is wrong with the Camera.",
-                                              dismissButton: .default(Text("Ok")))
-    static let invalidScannedType = AlertItem(title: "Invalid Scanned Type",
-                                              message: "The value scanned is not valid.",
-                                              dismissButton: .default(Text("Ok")))
-}
 
 struct BarcodeScannerView: View {
+
+    @StateObject var viewModel = BarcodeScannerViewModel()
     
-    @State private var scannedCode = ""
-    @State private var alertItem: AlertItem?
     var body: some View {
         // NavigationView for large navigation title
         NavigationView {
             VStack {
                 // Rectangle background for barcode with specified size
-                ScannerView(scannedCode: $scannedCode, alertItem: $alertItem)
+                ScannerView(scannedCode: $viewModel.scannedCode, alertItem: $viewModel.alertItem)
                     .frame(maxWidth: .infinity, maxHeight: 300)
                 
                 Spacer().frame(height: 60)
@@ -41,15 +24,15 @@ struct BarcodeScannerView: View {
                 Label("Scanned Barcode:", systemImage: "barcode.viewfinder")
                     .font(.title)
                 
-                Text(scannedCode.isEmpty ? "not yet scanned" : scannedCode)
+                Text(viewModel.scannedCode.isEmpty ? "not yet scanned" : viewModel.scannedCode)
                     .bold()
                     .font(.largeTitle)
-                    .foregroundColor(scannedCode.isEmpty ? .red : .green)
+                    .foregroundColor(viewModel.scannedCode.isEmpty ? .red : .green)
                     .padding()
                 
             }
             .navigationTitle("Barcode Scanner")
-            .alert(item: $alertItem) { alertItem in
+            .alert(item: $viewModel.alertItem) { alertItem in
                 Alert(title: Text(alertItem.title),
                       message: Text(alertItem.message),
                       dismissButton: alertItem.dismissButton)
