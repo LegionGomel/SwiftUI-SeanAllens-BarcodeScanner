@@ -12,4 +12,14 @@ final class BarcodeScannerViewModel: ObservableObject {
     @Published var scannedCode = ""
     @Published var alertItem: AlertItem?
     
+    
+    // Computed properties
+    var statusText: String {
+        scannedCode.isEmpty ? "not yet scanned" : scannedCode
+    }
+    
+    var statusTextColor: Color {
+        scannedCode.isEmpty ? .red : .green
+    }
+    
 }

@@ -41,6 +41,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE4B258D2784AEA3009CDDF9 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				CE4B258E2784AEB1009CDDF9 /* BarcodeScanner */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		CE4B258E2784AEB1009CDDF9 /* BarcodeScanner */ = {
+			isa = PBXGroup;
+			children = (
+				CE4B258B2784AC04009CDDF9 /* BarcodeScannerViewModel.swift */,
+				CEB7BF54274AB51D006837B3 /* BarcodeScannerView.swift */,
+			);
+			path = BarcodeScanner;
+			sourceTree = "<group>";
+		};
+		CE4B258F2784AED0009CDDF9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CE4B25902784AEDF009CDDF9 /* UIKit Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CE4B25902784AEDF009CDDF9 /* UIKit Components */ = {
+			isa = PBXGroup;
+			children = (
+				CEB7BF61274AC7E7006837B3 /* ScannerVC.swift */,
+				CEFC427B278368EC00E572F6 /* ScannerView.swift */,
+			);
+			path = "UIKit Components";
+			sourceTree = "<group>";
+		};
+		CE4B25912784AF19009CDDF9 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				CE4B25892784AB8D009CDDF9 /* Alert.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		CEB7BF46274AB51D006837B3 = {
 			isa = PBXGroup;
 			children = (
@@ -60,14 +102,12 @@
 		CEB7BF51274AB51D006837B3 /* BarcodeScanner */ = {
 			isa = PBXGroup;
 			children = (
-				CEB7BF60274AC385006837B3 /* Info.plist */,
+				CE4B25912784AF19009CDDF9 /* Utilities */,
+				CE4B258F2784AED0009CDDF9 /* Views */,
+				CE4B258D2784AEA3009CDDF9 /* Screens */,
 				CEB7BF52274AB51D006837B3 /* BarcodeScannerApp.swift */,
-				CEB7BF54274AB51D006837B3 /* BarcodeScannerView.swift */,
-				CE4B258B2784AC04009CDDF9 /* BarcodeScannerViewModel.swift */,
-				CE4B25892784AB8D009CDDF9 /* Alert.swift */,
-				CEB7BF61274AC7E7006837B3 /* ScannerVC.swift */,
-				CEFC427B278368EC00E572F6 /* ScannerView.swift */,
 				CEB7BF56274AB51E006837B3 /* Assets.xcassets */,
+				CEB7BF60274AC385006837B3 /* Info.plist */,
 				CEB7BF58274AB51E006837B3 /* Preview Content */,
 			);
 			path = BarcodeScanner;
